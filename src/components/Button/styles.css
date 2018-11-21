@@ -1,0 +1,53 @@
+.btnTC {
+    background-color: #323E49 !important;
+    border-color: #323E49 !important;
+    height:55px;
+    color: #FFFFFF !important;
+    font-size: 20px !important;
+}
+
+.btnTransparent{
+    background-color: transparent !important;
+    border-color: transparent !important;
+    height:55px;
+    color: #FFFFFF !important;
+    font-size: 20px !important;
+}
+
+.btnTransparent{
+    background-color: transparent !important;
+    border-color: transparent !important;
+    height:55px;
+    color: #FFFFFF !important;
+    font-size: 20px !important;
+}
+
+.btnClockInActive{
+    background-color:#86BB2C !important;
+    border-color:#86BB2C !important;
+    border-radius:42px !important;
+    font-weight: 600 !important;
+}
+
+.btnClockIn{
+    background-color: transparent !important;
+    border-color: transparent !important;
+    border-radius:42px !important;
+    font-weight: 600 !important;
+    color: #86BB2C !important
+}
+
+.btnClockOut{
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color:#893633 !important;
+    font-weight: 600 !important;
+}
+
+.btnClockOutActive{
+    background-color: #893633 !important;
+    border-color: #893633 !important;
+    border-radius:42px !important;
+    color:#ffffff!important;
+    font-weight: 600 !important;
+}

@@ -1,0 +1,81 @@
+
+
+.tc-feed-container{
+    background: #fff;
+    border: 2px solid #E6E6E6;
+    margin: 5px;
+    padding: 10px 15px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+.tc-feed__title{
+    line-height: 30px;
+    font-size: 14px;
+    color: #444;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.tc-feed__tcContainer{
+    border-top: 1px solid #D4D4D4;
+    overflow-y: scroll;
+    height:400px;
+}
+
+.tc-feed__tcBox{
+    border-bottom: 1px solid #E6E6E6 !important;
+    padding-left:0 !important;
+}
+
+.tc-feed__tcBoxUser{
+    border-bottom: 1px solid #E6E6E6 !important;
+    padding-left:0 !important;
+    background-color: rgb(153, 202, 47, 0.2) !important;
+}
+
+.tc-feed__tcBoxUserOut{
+    border-bottom: 1px solid #E6E6E6 !important;
+    padding-left:0 !important;
+    background-color: rgb(251,140,0, 0.2) !important;
+}
+
+
+
+.tc-feed__search{
+    float: left;
+    width: 60%;
+    overflow: hidden;
+}
+
+.tc-feed__filter{
+    float: right;
+    margin-right: 10px;
+}
+
+.tc-feed__tcSearchBox{
+    border-bottom-width: 2px !important;
+    border-bottom-color: #E6E6E6 !important;
+    border-bottom-style: 'solid' !important;
+    padding-left:0 !important;
+    padding-bottom:0 !important;
+}
+
+.tc-feed__IN .custom-control-input:disabled~.custom-control-label{
+    font-weight: 600;
+    color: #93C732 !important;
+    font-size: 14px;
+}
+
+.tc-feed__OUT .custom-control-input:disabled~.custom-control-label{
+    font-weight: 600;
+    color: #FB8C00 !important;
+    font-size: 14px;
+}
+
+.tc-feed__labels{
+    display: inline-block;
+    float: right;
+}
+

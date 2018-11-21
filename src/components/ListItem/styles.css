@@ -1,0 +1,38 @@
+.emp-name{
+    color: #536171;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+    width: auto;
+}
+
+.emp-name-user{
+    color: #536171;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    width: auto;
+}
+
+.tc-source{
+    font-size: 11px;
+    color: #999;
+    margin-left:5px;
+}
+
+.tc-source-user{
+    font-size: 17px;
+    color: #999;
+    margin-left:5px;
+}
+
+.tc-time{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.tc-time-user{
+    font-size: 20px;
+    font-weight: 800;
+}
+
