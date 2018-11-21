@@ -4,6 +4,7 @@ import ReactWOW from 'react-wow'
 import Vid1 from './../../assets/vid1.gif'
 import Button from './../../components/Button'
 import moment from 'moment'
+import './styles.css'
 
 export default class index extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ export default class index extends Component {
             animationOut:'bounceIn',
             iterationIn: '1',
             iterationOut: '1',
-            imageIn:'bounceIn'
+            imageIn:'bounceIn',
           };
           this.clockInBtn = this.clockInBtn.bind(this);
           this.clockOutBtn = this.clockOutBtn.bind(this);
@@ -46,6 +47,12 @@ export default class index extends Component {
     }
 
   render() {
+      let buttonShow = true
+      if(this.props.btnClockIn === 'buttonLabelActive' ) {
+        buttonShow = true
+      } else {
+        buttonShow = false
+      }
     return (
       <React.Fragment>
         <Container fluid={true}>
@@ -60,19 +67,25 @@ export default class index extends Component {
                 <Row className="mb-3">
                     <ReactWOW animation={this.state.imageIn}>
                         <Col className="text-center">
-                            <img src={Vid1} alt="" width="280"/>
+                            <img src={Vid1} alt="" width="240"/>
+                        </Col>
+                    </ReactWOW>
+                </Row>
+                <Row className="buttonLabelRow mr-4 ml-4 mb-3">
+                    <ReactWOW animation={"bounceIn"}>
+                        <Col className={this.props.data.btnLabelColIn}>
+                            <Button className={this.props.btnClockIn} text="Start" onClick={this.props.btnStateChange}/>
+                        </Col>
+                        <Col className={this.props.data.btnLabelColOut}>
+                            <Button className={this.props.btnClockOut} text="Finish" onClick={this.props.btnStateChange}/>
                         </Col>
                     </ReactWOW>
                 </Row>
                 <Row className="mr-4 ml-4">
-                    <ReactWOW animation={this.state.animationIn} iteration={this.state.iterationIn}>
-                        <Col style={{paddingRight:0}}>
-                            <Button className={this.props.btnClockIn} text="Clock in" onClick={this.clockInBtn}/>
-                        </Col>
-                    </ReactWOW>
-                    <ReactWOW animation={this.state.animationOut} iteration={this.state.iterationOut}>
-                        <Col style={{paddingLeft:0}}>
-                            <Button className={this.props.btnClockOut} text="Clock out" onClick={this.clockOutBtn}/>
+                    <ReactWOW animation={"pulse"} iteration={"500"}>
+                        <Col>
+                        { buttonShow && (<Button className={'btnClockInActive'} text="Clock in" onClick={this.clockInBtn}/>) }
+                        {!buttonShow && (<Button className={'btnClockOutActive'} text="Clock out" onClick={this.clockOutBtn}/>) }
                         </Col>
                     </ReactWOW>
                 </Row>

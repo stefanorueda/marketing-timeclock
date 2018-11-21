@@ -12,3 +12,24 @@
     line-height: 57px;
     text-align: center;
 }
+
+.buttonLabelRow{
+    background-color:#1C1521;
+    border-radius: 42px;
+    height:
+}
+
+.buttonLabelCol{
+    padding-left:0 !important;
+    padding-right:0 !important;
+    margin-right:5px;
+    margin-left:5px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.buttonLabelColActive{
+    padding-left:0 !important;
+    padding-right:0 !important;
+    margin-right:5px;
+}

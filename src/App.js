@@ -4,12 +4,21 @@ import './App.css';
 import TimeClockFeed from './views/TimeClockFeed'
 import TimeClock from './views/TimeClock'
 import TimeClockImageScreen from './views/TimeClockImageScreen'
-import TimeClockResponse from './views/TimeClockResponse'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus, faSortDown, faBackspace, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import faker from 'faker'
 import moment from 'moment'
 import ReactWOW from 'react-wow'
+import tcAvatar1 from './assets/tcavatar1.png'
+import tcAvatar2 from './assets/tcavatar2.png'
+import tcAvatar3 from './assets/tcavatar3.png'
+import tcAvatar4 from './assets/tcavatar4.png'
+import tcAvatar5 from './assets/tcavatar5.png'
+import tcAvatar6 from './assets/tcavatar6.png'
+import tcAvatar7 from './assets/tcavatar7.png'
+import tcAvatar8 from './assets/tcavatar8.png'
+import tcAvatar9 from './assets/tcavatar9.png'
+import tcAvatar10 from './assets/tcavatar10.png'
 
 library.add(faPlus,faSortDown,faBackspace,faMapMarkerAlt)
 
@@ -20,14 +29,16 @@ class App extends Component {
     this.state = {
         screen: true,
         screen2: false,
-        response: false,
         status: true,
-        btnClockIn: 'btnClockInActive',
-        btnClockOut: 'btnClockOut',
+        btnClockIn: 'buttonLabelActive',
+        btnClockOut: 'buttonLabel',
+        btnLabelColIn: 'buttonLabelColActive',
+        btnLabelColOut: 'buttonLabelCol',
+        imgAvatars:[tcAvatar1,tcAvatar2,tcAvatar3,tcAvatar4,tcAvatar5,tcAvatar6,tcAvatar7,tcAvatar8,tcAvatar9,tcAvatar10],
         timeClockFeed: [
           {
             name: faker.name.findName(),
-            avatar: faker.image.avatar(),
+            avatar: tcAvatar1,
             time: moment().subtract(1, "hour").format("HH:mm"),
             range: moment().to(moment().subtract(1, "hour")),
             clock: '#FB8C00',
@@ -38,7 +49,7 @@ class App extends Component {
           },
           {
             name: faker.name.findName(),
-            avatar: faker.image.avatar(),
+            avatar: tcAvatar2,
             time: moment().subtract(34, "minutes").format("HH:mm"),
             range: moment().to(moment().subtract(34, "minutes")),
             clock: '#FB8C00',
@@ -48,7 +59,7 @@ class App extends Component {
           },
           {
             name: faker.name.findName(),
-            avatar: faker.image.avatar(),
+            avatar: tcAvatar3,
             time: moment().subtract(15, "minutes").format("HH:mm"),
             range: moment().to(moment().subtract(15, "minutes")),
             clock: '#FB8C00',
@@ -58,7 +69,7 @@ class App extends Component {
           },
           {
             name: faker.name.findName(),
-            avatar: faker.image.avatar(),
+            avatar: tcAvatar4,
             time: moment().subtract(3, "minutes").format("HH:mm"),
             range: moment().to(moment().subtract(3, "minutes")),
             clock: '#FB8C00',
@@ -68,7 +79,7 @@ class App extends Component {
           },
           {
             name: faker.name.findName(),
-            avatar: faker.image.avatar(),
+            avatar: tcAvatar5,
             time: moment().subtract(2, "minutes").format("HH:mm"),
             range: moment().to(moment().subtract(2, "minutes")),
             clock: '#FB8C00',
@@ -81,16 +92,29 @@ class App extends Component {
       this.changeScreen = this.changeScreen.bind(this)
       this.addClockIn = this.addClockIn.bind(this)
       this.addClockOut = this.addClockOut.bind(this)
+      this.btnStateChange = this.btnStateChange.bind(this)
+    }
+    
+    btnStateChange(){
+      let tc = this.state.timeClockFeed
+      tc = tc.reverse()
+      if(this.state.btnClockIn === 'buttonLabelActive') {
+        this.setState({tc,btnClockIn:'buttonLabel',btnClockOut:'buttonLabelActive',btnLabelColIn:'buttonLabelCol',btnLabelColOut:'buttonLabelColActive'})
+      }
+      if(this.state.btnClockIn === 'buttonLabel') {
+        this.setState({tc,btnClockIn:'buttonLabelActive',btnClockOut:'buttonLabel',btnLabelColOut:'buttonLabelCol',btnLabelColIn:'buttonLabelColActive'})
+      }
     }
 
     addFeed() {
       let checkClock = Math.random() >= 0.5
+      let avatarImg = this.state.imgAvatars
       let clockColor = (checkClock) ? '#FB8C00' : '#84b32d'
       let locations = ['Brisbane','Sydney','Melbourne','Perth','Adelaide','Hobart']
       let loc = locations[Math.floor(Math.random() * locations.length)];
       const dataFeed = {
           name: faker.name.findName(),
-          avatar: faker.image.avatar(),
+          avatar: avatarImg[Math.floor(Math.random() * avatarImg.length)],
           time: moment().format("HH:mm"),
           range: moment().to(moment()),
           clock: clockColor,
@@ -112,9 +136,10 @@ class App extends Component {
   }
 
   addClockIn(){
+    let avatarImg = this.state.imgAvatars
     const dataFeed = {
       name: 'You have CLOCKED IN',
-      avatar: faker.image.avatar(),
+      avatar: avatarImg[Math.floor(Math.random() * avatarImg.length)],
       time: moment().format("HH:mm"),
       range: moment().to(moment()),
       clock: '#84b32d',
@@ -124,14 +149,15 @@ class App extends Component {
     }
     let tc = this.state.timeClockFeed
     tc = tc.reverse().push(dataFeed)
-    this.setState({tc,screen: true, screen2: false, status: false, btnClockIn: 'btnClockIn',
-    btnClockOut: 'btnClockOutActive'})
+    this.setState({tc,screen: true, screen2: false, status: false, btnClockIn: 'buttonLabel',
+    btnClockOut: 'buttonLabelActive',btnLabelColOut:'buttonLabelColActive',btnLabelColIn:'buttonLabelCol'})
   }
 
   addClockOut(){
+    let avatarImg = this.state.imgAvatars
     const dataFeed = {
       name: 'You have CLOCKED OUT',
-      avatar: faker.image.avatar(),
+      avatar: avatarImg[Math.floor(Math.random() * avatarImg.length)],
       time: moment().format("HH:mm"),
       range: moment().to(moment()),
       clock: '#FB8C00',
@@ -141,8 +167,8 @@ class App extends Component {
     }
     let tc = this.state.timeClockFeed
     tc = tc.reverse().push(dataFeed)
-    this.setState({tc,screen: true, screen2: false, status: true, btnClockIn: 'btnClockInActive',
-    btnClockOut: 'btnClockOut'})
+    this.setState({tc,screen: true, screen2: false, status: true, btnClockIn: 'buttonLabelActive',
+    btnClockOut: 'buttonLabel',btnLabelColIn:'buttonLabelColActive',btnLabelColOut:'buttonLabelCol'})
   }
 
   render() {
@@ -158,8 +184,7 @@ class App extends Component {
             <div className="device-window tablet">
               <span>
                 {this.state.screen && ( <TimeClock changeScreen={this.changeScreen}/>)}
-                {this.state.screen2 && ( <TimeClockImageScreen btnClockIn={this.state.btnClockIn} addClockIn={this.addClockIn} addClockOut={this.addClockOut} btnClockOut={this.state.btnClockOut} status={this.state.status}/>)}
-                {this.state.response && ( <TimeClockResponse/>)}
+                {this.state.screen2 && ( <TimeClockImageScreen btnClockIn={this.state.btnClockIn} addClockIn={this.addClockIn} addClockOut={this.addClockOut} btnClockOut={this.state.btnClockOut} btnStateChange={this.btnStateChange} data={this.state} status={this.state.status}/>)}
               </span>
             </div>
             </ReactWOW>

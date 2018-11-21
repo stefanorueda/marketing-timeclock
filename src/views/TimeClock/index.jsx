@@ -5,6 +5,7 @@ import './styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ReactWOW from 'react-wow'
 import moment from 'moment'
+import TandaLogo from './../../assets/tanda-logo.png'
 
 export default class index extends Component {
     constructor(props) {
@@ -167,8 +168,11 @@ export default class index extends Component {
                 </Row>
                 <Row className="mt-5">
                     <ReactWOW animation="bounceIn" delay="2.6s">
-                        <Col className="text-center" style={{color: "#FFFFFF"}}>
+                        <Col style={{color: "#FFFFFF"}}>
                             <FontAwesomeIcon icon="map-marker-alt" size="xs" style={{color: "#FFFFFF"}} /> Brisbane
+                        </Col>
+                        <Col style={{color: "#FFFFFF",textAlign:"right"}}>
+                            <img src={TandaLogo} alt="tanda-logo" width="120"/>
                         </Col>
                     </ReactWOW>    
                 </Row>
