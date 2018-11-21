@@ -174,20 +174,22 @@ class App extends Component {
   render() {
     return (
      <React.Fragment>
-       <Container style={{marginTop: '200px'}}>
+       <Container style={{marginTop: '100px'}}>
         <Row>
           <Col>
+            <div className="layer1">
             <TimeClockFeed data={this.state.timeClockFeed}/>
-          </Col>
-          <Col>
-          <ReactWOW animation="fadeInUp" delay="0.5s" >
-            <div className="device-window tablet">
-              <span>
-                {this.state.screen && ( <TimeClock changeScreen={this.changeScreen}/>)}
-                {this.state.screen2 && ( <TimeClockImageScreen btnClockIn={this.state.btnClockIn} addClockIn={this.addClockIn} addClockOut={this.addClockOut} btnClockOut={this.state.btnClockOut} btnStateChange={this.btnStateChange} data={this.state} status={this.state.status}/>)}
-              </span>
             </div>
-            </ReactWOW>
+            <ReactWOW animation="fadeInUp" delay="0.5s" >
+              <div className="layer2">
+                <div className="device-window tablet">
+                  <span>
+                    {this.state.screen && ( <TimeClock changeScreen={this.changeScreen}/>)}
+                    {this.state.screen2 && ( <TimeClockImageScreen btnClockIn={this.state.btnClockIn} addClockIn={this.addClockIn} addClockOut={this.addClockOut} btnClockOut={this.state.btnClockOut} btnStateChange={this.btnStateChange} data={this.state} status={this.state.status}/>)}
+                  </span>
+                </div>
+              </div>
+              </ReactWOW>
           </Col>
         </Row>
       </Container>
