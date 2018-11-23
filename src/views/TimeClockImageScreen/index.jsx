@@ -74,10 +74,10 @@ export default class index extends Component {
                 <Row className="buttonLabelRow mr-4 ml-4 mb-3">
                     <ReactWOW animation={"bounceIn"}>
                         <Col className={this.props.data.btnLabelColIn}>
-                            <Button className={this.props.btnClockIn} text="Start" onClick={this.props.btnStateChange}/>
+                            <Button className={this.props.btnClockIn} text="START" onClick={this.props.btnStateChange}/>
                         </Col>
                         <Col className={this.props.data.btnLabelColOut}>
-                            <Button className={this.props.btnClockOut} text="Finish" onClick={this.props.btnStateChange}/>
+                            <Button className={this.props.btnClockOut} text="FINISH" onClick={this.props.btnStateChange}/>
                         </Col>
                     </ReactWOW>
                 </Row>

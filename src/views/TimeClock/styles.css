@@ -13,35 +13,41 @@
     text-align: center;
 }
 
-.insert-pass{
-    margin-left:3rem !important;
-    margin-right:3rem !important;
+.row-insert-pass{
+    margin-left:2rem !important;
+    margin-right:2rem !important;
 }
 
-.insert-pass button:disabled{
+.insert-pass:disabled{
     background-color: #546171 !important;
     border-color: #546171 !important;
     height:55px !important;
     color: #FFFFFF !important;
     font-size: 20px !important;
     opacity: 1 !important;
+    width: 100%;
 }
 
-.btnPassCodeSuccess{
-    margin-left:3rem !important;
-    margin-right:3rem !important;
-}
-
-.btnPassCodeSuccess button:disabled{
-    background-color: #92C533 !important;
-    border-color: #92C533 !important;
+.btnPassCodeSuccess:disabled{
+    background-color: #86BB2C !important;
+    border-color: #86BB2C !important;
     height:55px;
     color: #FFFFFF !important;
     font-size: 20px !important;
-    opacity: 1;
+    opacity: 1 !important;
 }
 
-.insert-pass .col{
+.btnPassCodeInsert:disabled{
+    background-color: #42AED7 !important;
+    border-color: #42AED7 !important;
+    height:55px;
+    color: #FFFFFF !important;
+    font-size: 20px !important;
+    opacity: 1 !important;
+}
+
+
+.col-insert-pass{
     padding-left:5px !important;
     padding-right:5px !important;
 }

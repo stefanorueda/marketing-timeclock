@@ -11,7 +11,20 @@ export default class index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            btnStyle: 'insert-pass',
+            btnStyle: [
+                {
+                  value:'insert-pass'
+                },
+                {
+                  value:'insert-pass'
+                },
+                {
+                  value:'insert-pass'
+                },
+                {
+                  value:'insert-pass'
+                },
+              ],
             passCode: [
               {
                 value:''
@@ -37,7 +50,9 @@ export default class index extends Component {
             for(let i = 0; i < passCode.length; i++) {
                 passCode[i].value = ''
             }
-            btnStyle = 'insert-pass'  
+            for(let i = 0; i < btnStyle.length; i++) {
+                btnStyle[i].value = 'insert-pass' 
+            } 
         } else if(value === "remove") {
             for(let i = passCode.length-1; i >= 0; i--) {
                 if(passCode[i].value !== '') {
@@ -45,15 +60,20 @@ export default class index extends Component {
                     i = 0
                 }
             }
-            btnStyle = 'insert-pass'    
+            for(let i = 0; i < btnStyle.length; i++) {
+                btnStyle[i].value = 'insert-pass' 
+            } 
         } else {
             for(let i = 0; i < passCode.length; i++) {
                 if(passCode[i].value === '') {
                     passCode[i].value = value
+                    btnStyle[i].value = 'btnPassCodeInsert' 
                     i = 5
                 }
-                if(passCode[3].value !== ''){
-                    btnStyle = 'btnPassCodeSuccess'         
+                if(passCode[3].value !== ''){ 
+                    for(let i = 0; i < btnStyle.length; i++) {
+                        btnStyle[i].value = 'btnPassCodeSuccess' 
+                    } 
                     setTimeout(() => {
                         this.props.changeScreen();
                       }, 500);
@@ -70,104 +90,104 @@ export default class index extends Component {
           <Container fluid={true}>
             <div className="timeClock_Container">
                 <Row className="mb-5 nav">
-                    <ReactWOW animation="bounceIn" delay="0.9s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                         { moment().format("HH:mm")}
                         </Col>
                     </ReactWOW>
                 </Row>
-                <Row className={this.state.btnStyle}>
-                    <ReactWOW animation="bounceIn" delay="1s">
-                        <Col>
-                            <Button text={this.state.passCode[0].value} disabled={true}/>
+                <Row className={"row-insert-pass"}>
+                    <ReactWOW animation="bounceIn" delay="0.5s">
+                        <Col className="col-insert-pass">
+                            <Button className={this.state.btnStyle[0].value} text={this.state.passCode[0].value} disabled={true}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="1.1s">
-                        <Col>
-                            <Button text={this.state.passCode[1].value} disabled={true}/>
+                    <ReactWOW animation="bounceIn" delay="0.5s">
+                        <Col className="col-insert-pass">
+                            <Button className={this.state.btnStyle[1].value} text={this.state.passCode[1].value} disabled={true}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="1.2s">
-                        <Col>
-                            <Button text={this.state.passCode[2].value} disabled={true}/>
+                    <ReactWOW animation="bounceIn" delay="0.5s">
+                        <Col className="col-insert-pass">
+                            <Button className={this.state.btnStyle[2].value} text={this.state.passCode[2].value} disabled={true}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="1.3s">
-                        <Col>
-                            <Button text={this.state.passCode[3].value} disabled={true}/>
+                    <ReactWOW animation="bounceIn" delay="0.5s">
+                        <Col className="col-insert-pass">
+                            <Button className={this.state.btnStyle[3].value} text={this.state.passCode[3].value} disabled={true}/>
                         </Col>
                     </ReactWOW>
                 </Row>
                 <Row className="mt-5 mr-4 ml-4">
-                    <ReactWOW animation="bounceIn" delay="1.4s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"1"} onClick={() => this.handleButtonClick(1)}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="1.5s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"2"} onClick={() => this.handleButtonClick(2)}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="1.6s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"3"} onClick={() => this.handleButtonClick(3)}/>
                         </Col>
                     </ReactWOW>
                 </Row>
                 <Row className="mt-3 mr-4 ml-4">
-                    <ReactWOW animation="bounceIn" delay="1.7s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"4"} onClick={() => this.handleButtonClick(4)}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="1.8s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"5"} onClick={() => this.handleButtonClick(5)}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="1.9s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"6"} onClick={() => this.handleButtonClick(6)}/>
                         </Col>
                     </ReactWOW>
                 </Row>
                 <Row className="mt-3 mr-4 ml-4">
-                    <ReactWOW animation="bounceIn" delay="2s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"7"} onClick={() => this.handleButtonClick(7)}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="2.1s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"8"} onClick={() => this.handleButtonClick(8)}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="2.2s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"9"} onClick={() => this.handleButtonClick(9)}/>
                         </Col>
                     </ReactWOW>
                 </Row>
                 <Row className="mt-3 mr-4 ml-4">
-                    <ReactWOW animation="bounceIn" delay="2.3s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTransparent"} text={"Clear"} onClick={() => this.handleButtonClick("clear")}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="2.4s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTC"} text={"0"} onClick={() => this.handleButtonClick('0')}/>
                         </Col>
                     </ReactWOW>
-                    <ReactWOW animation="bounceIn" delay="2.5s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col>
                             <Button className={"btnTransparent"} text={<FontAwesomeIcon icon="backspace" />} onClick={() => this.handleButtonClick("remove")}/>
                         </Col>
                     </ReactWOW>                        
                 </Row>
                 <Row className="mt-5">
-                    <ReactWOW animation="bounceIn" delay="2.6s">
+                    <ReactWOW animation="bounceIn" delay="0.5s">
                         <Col style={{color: "#FFFFFF"}}>
                             <FontAwesomeIcon icon="map-marker-alt" size="xs" style={{color: "#FFFFFF"}} /> Brisbane
                         </Col>

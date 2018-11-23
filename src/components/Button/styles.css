@@ -7,6 +7,15 @@
     box-shadow: 5px 5px 3px 0px rgba(0,0,0,0.2) !important; 
 }
 
+.btnTC:active {
+    background-color: #42AED7 !important;
+    border-color: #42AED7 !important;
+    height:55px;
+    color: #FFFFFF !important;
+    font-size: 20px !important;
+    box-shadow: 5px 5px 3px 0px rgba(0,0,0,0.2) !important; 
+}
+
 .btnTransparent{
     background-color: transparent !important;
     border-color: transparent !important;
