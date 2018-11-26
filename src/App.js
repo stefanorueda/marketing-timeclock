@@ -174,9 +174,9 @@ class App extends Component {
   render() {
     return (
      <React.Fragment>
-       <Container style={{marginTop: '100px'}}>
+       {/* <Container fluid={true}>
         <Row>
-          <Col>
+          <Col> */}
             <div className="layer1">
             <TimeClockFeed data={this.state.timeClockFeed}/>
             </div>
@@ -190,9 +190,9 @@ class App extends Component {
                 </div>
               </div>
               </ReactWOW>
-          </Col>
+          {/* </Col>
         </Row>
-      </Container>
+      </Container> */}
      </React.Fragment>
     );
   }
